@@ -1,1 +1,33 @@
-/* Add your CSS here */
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.heatmap-container {
+  display: inline-block;
+  position: relative;
+}
+
+.heatmap-legend {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  border: 1px solid #000;
+}
+
+.legend-label {
+  font-size: 14px;
+}
+

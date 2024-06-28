@@ -1,9 +1,5 @@
-/**
- * Fetches JSON data from specified files and aggregates the utterances.
- * @returns {Promise<Array>} Array of utterances from all JSON files.
- */
-
 // src/utils/fetchData.js
+
 export async function fetchData(filePath) {
   try {
     const response = await fetch(filePath);
@@ -12,14 +8,17 @@ export async function fetchData(filePath) {
     }
     const json = await response.json();
     
+    // Check for expected properties or handle data differently
     if (json && (json.utterances || json.words)) {
       return json.utterances || json.words;
     } else {
-      throw new Error("JSON data does not have 'utterances' or 'words' property");
+      // Fallback or handle differently if properties are missing
+      console.warn("JSON data does not have 'utterances' or 'words' property:", json);
+      // Example: Return entire JSON object if no specific properties found
+      return json;
     }
   } catch (error) {
     console.error(`Error loading data from ${filePath}:`, error);
     throw error;
   }
 }
-
